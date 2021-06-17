@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salário dos Funcionários</title>
+    <link rel="stylesheet" href="bootstrap.css">
+    <style>
+      
+      h1{
+        margin-left: 32%;
+       margin-top: 1%;}
+       div.form-group{
+         margin-left: 20%;
+         margin-right: 20%;
+         margin-top: 1%;
+       }
+       button{
+         margin-left: 45%;
+       }
+       label#salario{
+         margin-top: 40%;
+         margin-left: 38%;
+         margin-right: 10%;
+       }
+    </style>
+</head>
+<body>
+    <h1>Salário de cada Funcionário</h1>
+    
+    <div class="form-group">
+        <label for="exampleSelect1" class="form-label mt-4">Qual a função do funcionário?</label>
+        <select class="form-select" id="exampleSelect1">
+          <option>Gerente</option>
+          <option>Caixa</option>
+          <option>Cozinheiro</option>
+          <option>Garçom</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="exampleSelect1" class="form-label mt-4">Quantas horas trabalhadas?</label>
+        <select class="form-select" id="exampleSelect1" name="horas">
+          <option>1</option>
+          <option>2</option>
+          <option>3</option>
+          <option>4</option>
+          <option>5</option>
+          <option>6</option>
+          <option>7</option>
+          <option>8</option>
+        </select>
+      </div>
+
+
+       <div class="form-group">
+        <label for="exampleInputEmail1" class="form-label mt-4">Quantos dias trabalhados?</label>
+        <input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="01" maxlength="2">
+      </div> <br>
+      <button type="button" class="btn btn-outline-primary" onclick="Calcula()">Calcular</button>
+
+
+
+      
+
+      <div class="form-group">
+        <label class="form-label mt-4" id="salario">Salário do funcionário</label>
+        <div class="form-group">
+          <div class="input-group mb-3">
+            <span class="input-group-text">$</span>
+            <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)" id='escrev'>
+            <span class="input-group-text">.00</span>
+          </div>
+        </div>
+      </div>
+      
+
+      
+      <script>
+          function Calcula(){
+
+          
+
+             //pegando o select sobre a função e atribuindo um valor pra cada função
+            var select = document.getElementById('exampleSelect1');
+	          var value = select.options[select.selectedIndex].value;
+            
+	          
+
+            if(value=='Caixa'){
+              var dinheiro= 50;
+              
+
+            }else if(value=='Gerente'){
+              var dinheiro= 150;
+              
+
+            }else if(value=='Cozinheiro'){
+              var dinheiro= 100;
+              
+
+            }else if(value=='Garçom'){
+              var dinheiro= 70;
+              
+            };
+
+            //pegando as horas trabalhadas
+             select = document.getElementsByClassName('form-select')[1];
+	           value = select.options[select.selectedIndex].value;
+            
+	          
+
+            switch(value){
+              case '1': var hora=1; break;
+              case '2': hora=2; break;
+              case '3': hora=3; break;
+              case '4': hora=4; break;
+              case '5': hora=5; break;
+              case '6': hora=6; break;
+              case '7': hora=7; break;
+              case '8': hora=8; break;
+              default:break;  
+            }
+            
+
+
+            //pegando dias trabalhados
+            var dias=Number(document.getElementById('exampleInputEmail1').value) 
+            
+
+            //calculando o salário
+            var salario=(dinheiro*hora*dias)
+            
+
+            //escrevendo o resultado
+            document.getElementById('escrev').value= ''+salario+''
+          }
+       
+      </script>
+</body>
+</html>
